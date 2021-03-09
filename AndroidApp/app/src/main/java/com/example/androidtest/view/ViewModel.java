@@ -4,17 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidtest.R;
 import com.example.androidtest.model.Model;
-import com.example.androidtest.persistence.DB;
+import com.example.androidtest.persistence.SQLite.DB;
+import com.example.androidtest.persistence.SQLite2.DB2;
 
 public class ViewModel extends AppCompatActivity {
 
     DB db;
+    DB2 db2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,12 @@ public class ViewModel extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = new DB(this); //wrapper DB
-        db.addName("Klaus Port"); //putter Klaus ind i DB
+        db2 = new DB2(this);
 
-        Toast.makeText(this, "Values saved to database", Toast.LENGTH_LONG).show();
+        db.addName("Klaus Port"); //putter Klaus ind i DB
+        db2.addName("MASSIVE LUXERY OVERDOSE");
+
+        Toast.makeText(this, "all values saved to database", Toast.LENGTH_LONG).show(); //viser en notifikation med text
     }
 
     @SuppressLint("SetTextI18n")

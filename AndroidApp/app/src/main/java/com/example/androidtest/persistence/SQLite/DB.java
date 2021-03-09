@@ -1,4 +1,4 @@
-package com.example.androidtest.persistence;
+package com.example.androidtest.persistence.SQLite;
 
 import android.content.ContentValues;
 import android.content.Context;
